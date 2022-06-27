@@ -8,8 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.siloam.cucumber.config.AutomationFrameworkConfig;
 import com.siloam.cucumber.driver.DriverSingleton;
+import com.siloam.cucumber.pages.InputPage;
 import com.siloam.cucumber.pages.LoginPage;
-import com.siloam.cucumber.pages.MyBookings;
 import com.siloam.cucumber.utils.ConfigurationProperties;
 import com.siloam.cucumber.utils.Constants;
 import com.siloam.cucumber.utils.TestCases;
@@ -34,7 +34,7 @@ public class StepDefinition {
 
 	private static WebDriver driver;
 	private LoginPage loginPage;
-	private MyBookings myBookings;
+	private InputPage inputPage;
 	//tambahan di package pages
 	static ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/ReportTest.html");
@@ -46,7 +46,7 @@ public class StepDefinition {
 	public void setUp() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-		myBookings = new MyBookings();
+		inputPage = new InputPage();
 		TestCases[] tests = TestCases.values();
 		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
 		Utils.testCount++;
@@ -107,6 +107,18 @@ public class StepDefinition {
 		tunggu(2);
 		assertEquals(configurationProperties.getTxtWelcome(), loginPage.getTxtWelcome());
 		extentTest.log(LogStatus.PASS, "Customer berhasil login");
+	}
+	
+	@When("Sales input data pasien")
+	public void sales_input_data_pasien() {
+		inputPage.inputForm();
+		extentTest.log(LogStatus.PASS, "Sales Input Data");
+	}
+	
+	@Then("Sales berhasil input")
+	public void sales_berhasil_input() {
+		assertEquals(configurationProperties.getTxtBerhasilInput(), inputPage.getTxtBerhasilInput());
+		extentTest.log(LogStatus.PASS, "Sales Berhasil Input Data");
 	}
 	
 	

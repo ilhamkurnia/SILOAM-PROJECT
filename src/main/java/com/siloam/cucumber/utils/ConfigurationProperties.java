@@ -26,8 +26,8 @@ public class ConfigurationProperties {
 	@Value("${messageErrorLogin}")
 	private String messageErrorLogin;
 	
-	@Value("${titlePageMyBookings}")
-	private String titlePageMyBookings;
+	@Value("${txtBerhasilInput}")
+	private String txtBerhasilInput;
 
 	public String getBrowser() {
 		return browser;
@@ -77,12 +77,12 @@ public class ConfigurationProperties {
 		this.messageErrorLogin = messageErrorLogin;
 	}
 
-	public String getTitlePageMyBookings() {
-		return titlePageMyBookings;
+	public String getTxtBerhasilInput() {
+		return txtBerhasilInput;
 	}
 
-	public void setTitlePageMyBookings(String titlePageMyBookings) {
-		this.titlePageMyBookings = titlePageMyBookings;
+	public void setTxtBerhasilInput(String txtBerhasilInput) {
+		this.txtBerhasilInput = txtBerhasilInput;
 	}
 	
 	
