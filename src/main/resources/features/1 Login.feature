@@ -1,8 +1,20 @@
 Feature: Customer Login ke Web Siloam Project
-	Scenario: Testing Login Invalid Customer
-	  Given Customer mengakses url
-		When Customer login dengan username dan password salah
-		Then Customer gagal login
+	Scenario: Testing Login Empty Username
+	  Given User mengakses url
+		When User login dengan username kosong
+		Then User gagal login dengan username kosong
+		
+		Scenario: Testing Login Empty Password
+		When User login dengan password kosong
+		Then User gagal login dengan password kosong
+		
+		Scenario: Testing Login Invalid Username
+		When User login dengan invalid username
+		Then User gagal login dengan invalid username
+		
+		Scenario: Testing Login Invalid Password
+		When User login dengan invalid password
+		Then User gagal login dengan invalid password
 		
 	Scenario: Testing Login Valid Customer		
 		When Customer login dengan username dan password

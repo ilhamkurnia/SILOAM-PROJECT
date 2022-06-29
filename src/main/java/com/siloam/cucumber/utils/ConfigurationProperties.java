@@ -11,11 +11,17 @@ public class ConfigurationProperties {
 	@Value("${browser}")
 	private String browser;
 	
+	@Value("${emptyUsernamePassword}")
+	private String emptyUsernamePassword;
+	
 	@Value("${email}")
 	private String email;
 	
 	@Value("${password}")
 	private String password;
+	
+	@Value("${wrongUsername}")
+	private String wrongUsername;
 	
 	@Value("${wrongPassword}")
 	private String wrongPassword;
@@ -35,6 +41,14 @@ public class ConfigurationProperties {
 
 	public void setBrowser(String browser) {
 		this.browser = browser;
+	}
+
+	public String getEmptyUsernamePassword() {
+		return emptyUsernamePassword;
+	}
+
+	public void setEmptyUsernamePassword(String emptyUsernamePassword) {
+		this.emptyUsernamePassword = emptyUsernamePassword;
 	}
 
 	public String getEmail() {
@@ -59,6 +73,14 @@ public class ConfigurationProperties {
 
 	public void setTxtWelcome(String txtWelcome) {
 		this.txtWelcome = txtWelcome;
+	}
+
+	public String getWrongUsername() {
+		return wrongUsername;
+	}
+
+	public void setWrongUsername(String wrongUsername) {
+		this.wrongUsername = wrongUsername;
 	}
 
 	public String getWrongPassword() {

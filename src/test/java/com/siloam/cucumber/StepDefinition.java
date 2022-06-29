@@ -75,24 +75,64 @@ public class StepDefinition {
 	
 	
 	// Modul Login
-	@Given("Customer mengakses url")
+	@Given("User mengakses url")
 	public void customer_mengakses_url() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Customer mengakses url "+Constants.URL);
 	}
 	
-	@When("Customer login dengan username dan password salah")
-	public void customer_login_dengan_username_password_Salah() {
-		loginPage.loginForm(configurationProperties.getEmail(), configurationProperties.getWrongPassword());
-		extentTest.log(LogStatus.PASS, "Customer login dengan username dan password salah");
+	@When("User login dengan username kosong")
+	public void customer_login_dengan_username_salah() {
+		loginPage.loginForm(configurationProperties.getEmptyUsernamePassword(), configurationProperties.getEmptyUsernamePassword());
+		extentTest.log(LogStatus.PASS, "User login dengan username kosong");
 	}
 	
-	@Then("Customer gagal login")
-	public void customer_gagal_login() {
+	@Then("User gagal login dengan username kosong")
+	public void customer_gagal_login_dengan_username_kosong() {
+		tunggu(3);
+		assertEquals(configurationProperties.getEmptyUsernamePassword(), loginPage.getAlertUsername());
+		extentTest.log(LogStatus.PASS, "User gagal login dengan username kosong");
+	}
+	
+	@When("User login dengan password kosong")
+	public void customer_login_dengan_password_salah() {
+		loginPage.loginForm(configurationProperties.getEmail(), configurationProperties.getEmptyUsernamePassword());
+		extentTest.log(LogStatus.PASS, "User login dengan password kosong");
+	}
+	
+	@Then("User gagal login dengan password kosong")
+	public void customer_gagal_login_dengan_password_kosong() {
+		tunggu(3);
+		assertEquals(configurationProperties.getEmptyUsernamePassword(), loginPage.getAlertUsername());
+		extentTest.log(LogStatus.PASS, "User gagal login dengan password kosong");
+	}
+	
+	
+	@When("User login dengan invalid username")
+	public void user_login_dengan_username_salah() {
+		loginPage.loginForm(configurationProperties.getWrongUsername(), configurationProperties.getPassword());
+		extentTest.log(LogStatus.PASS, "User login dengan username salah");
+	}
+	
+	@Then("User gagal login dengan invalid username")
+	public void user_gagal_login_dengan_username_salah() {
 		tunggu(3);
 		assertEquals(configurationProperties.getMessageErrorLogin(), loginPage.getMessageErrorLogin());
-		extentTest.log(LogStatus.PASS, "Customer gagal login");
+		extentTest.log(LogStatus.PASS, "Customer gagal login dengan username salah");
+	}
+	
+	@When("User login dengan invalid password")
+	public void user_login_dengan_password_salah() {
+		loginPage.loginForm(configurationProperties.getEmail(), configurationProperties.getWrongPassword());
+		extentTest.log(LogStatus.PASS, "User login dengan password salah");
+	}
+	
+	@Then("User gagal login dengan invalid password")
+	public void customer_gagal_login_dengan_password_salah() {
+		tunggu(3);
+		assertEquals(configurationProperties.getMessageErrorLogin(), loginPage.getMessageErrorLogin());
+		extentTest.log(LogStatus.PASS, "Customer gagal login dengan password salah");
 	}
 	
 	@When("Customer login dengan username dan password")
@@ -109,6 +149,7 @@ public class StepDefinition {
 		extentTest.log(LogStatus.PASS, "Customer berhasil login");
 	}
 	
+	//modul input data
 	@When("Sales input data pasien")
 	public void sales_input_data_pasien() {
 		inputPage.inputForm();
