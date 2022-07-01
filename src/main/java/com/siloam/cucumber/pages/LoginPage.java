@@ -43,7 +43,7 @@ public class LoginPage {
 	
 	
 	@FindBy(css = "#page-container > div > div.login-header > div.brand > b")
-	private WebElement messageErrorLogin;
+	private WebElement halamanLogin;
 	
 	public void loginForm(String email, String password) {
 		inputEmail.clear();
@@ -92,7 +92,7 @@ public class LoginPage {
 		return txtWelcome.getText();
 	}
 	
-	public String getMessageErrorLogin() {
-		return messageErrorLogin.getText();
+	public String getHalamanLogin() {
+		return halamanLogin.getText();
 	}
 }

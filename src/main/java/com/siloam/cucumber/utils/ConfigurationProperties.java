@@ -14,8 +14,8 @@ public class ConfigurationProperties {
 	@Value("${emptyUsernamePassword}")
 	private String emptyUsernamePassword;
 	
-	@Value("${email}")
-	private String email;
+	@Value("${usernameSales}")
+	private String usernameSales;
 	
 	@Value("${usernameAdmin}")
 	private String usernameAdmin;
@@ -38,8 +38,14 @@ public class ConfigurationProperties {
 	@Value("${txtWelcomeAdmin}")
 	private String txtWelcomeAdmin;
 	
-	@Value("${messageErrorLogin}")
-	private String messageErrorLogin;
+	@Value("${halamanLogin}")
+	private String halamanLogin;
+	
+	@Value("${halamanInputData}")
+	private String halamanInputData;
+	
+	@Value("${halamanTandaTanganDigital}")
+	private String halamanTandaTangan;
 	
 	@Value("${txtBerhasilInput}")
 	private String txtBerhasilInput;
@@ -49,6 +55,8 @@ public class ConfigurationProperties {
 	
 	@Value("${txtFormReturnComplete}")
 	private String txtFormReturnComplete;
+	
+	
 
 	public String getBrowser() {
 		return browser;
@@ -66,12 +74,12 @@ public class ConfigurationProperties {
 		this.emptyUsernamePassword = emptyUsernamePassword;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsernameSales() {
+		return usernameSales;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsernameSales(String usernameSales) {
+		this.usernameSales = usernameSales;
 	}
 
 	public String getPassword() {
@@ -98,6 +106,32 @@ public class ConfigurationProperties {
 
 	public void setPasswordAdmin(String passwordAdmin) {
 		this.passwordAdmin = passwordAdmin;
+	}
+	
+	
+
+	public String getHalamanLogin() {
+		return halamanLogin;
+	}
+
+	public void setHalamanLogin(String halamanLogin) {
+		this.halamanLogin = halamanLogin;
+	}
+
+	public String getHalamanInputData() {
+		return halamanInputData;
+	}
+
+	public void setHalamanInputData(String halamanInputData) {
+		this.halamanInputData = halamanInputData;
+	}
+
+	public String getHalamanTandaTangan() {
+		return halamanTandaTangan;
+	}
+
+	public void setHalamanTandaTangan(String halamanTandaTangan) {
+		this.halamanTandaTangan = halamanTandaTangan;
 	}
 
 	public String getTxtWelcome() {
@@ -130,14 +164,6 @@ public class ConfigurationProperties {
 
 	public void setWrongPassword(String wrongPassword) {
 		this.wrongPassword = wrongPassword;
-	}
-
-	public String getMessageErrorLogin() {
-		return messageErrorLogin;
-	}
-
-	public void setMessageErrorLogin(String messageErrorLogin) {
-		this.messageErrorLogin = messageErrorLogin;
 	}
 
 	public String getTxtBerhasilInput() {

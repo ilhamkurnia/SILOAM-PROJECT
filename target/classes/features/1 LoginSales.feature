@@ -1,6 +1,9 @@
-Feature: User Login ke Web Siloam Project
-	Scenario: Testing Login Empty Username
+Feature: User Sales Login ke Siloam Project
+	Scenario: Testing Menampilkan Halaman Login
 	  Given User mengakses url
+		Then User menampillkan halaman login
+		
+	Scenario: Testing Login Empty Username
 		When User login dengan username kosong
 		Then User gagal login dengan username kosong
 		

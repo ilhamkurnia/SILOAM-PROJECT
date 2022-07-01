@@ -33,6 +33,9 @@ private WebDriver driver;
 	@FindBy(id = "btn-filter")
 	private WebElement btnFilter;
 	
+	@FindBy(id = "btn-reset")
+	private WebElement btnReset;
+	
 	@FindBy(css = "#table > tbody > tr:nth-child(1) > td:nth-child(2)")
 	private WebElement txtFormReturnPending;
 	
@@ -40,16 +43,27 @@ private WebDriver driver;
 	private WebElement txtFormReturnComplete;
 	
 	
+	@FindBy(css = "#table_filter > label > input")
+	private WebElement search;
+	
+	@FindBy(id = "btnSearch")
+	private WebElement btnSearch;
+	
+	@FindBy(css = "#table > tbody > tr > td:nth-child(7) > center > a > span")
+	private WebElement btnAksi;
+	
+	
+	@FindBy(css = "#content > ol > li.breadcrumb-item.active")
+	private WebElement halamanTandaTangan;
+	
 	
 	
 	public void ReturnFormPending() {
 		sidebarNew.click();
 		tglAwal.sendKeys("2022-06-29");
 		tglAwal.sendKeys(Keys.RETURN);
-//		selectDropdown(tglAwal).selectByValue("20220601");
 		tglAkhir.sendKeys("2022-06-30");
 		tglAkhir.sendKeys(Keys.RETURN);
-//		selectDropdown(tglAkhir).selectByValue("20220603");
 		selectDropdown(status).selectByValue("pending");
 		btnFilter.click();
 	}
@@ -63,6 +77,18 @@ private WebDriver driver;
 		btnFilter.click();
 	}
 	
+	public void SearchData() {
+		tunggu(3);
+		btnReset.click();
+		tunggu(3);
+		search.sendKeys("samuel");
+		tunggu(3);
+		btnSearch.click();
+		tunggu(3);
+		btnAksi.click();
+		
+	}
+	
 	public static Select selectDropdown(WebElement driver) {
 		 Select select = new Select(driver);
 		 return select;
@@ -74,6 +100,19 @@ private WebDriver driver;
 	
 	public String getTxtFormReturnComplete() {
 		return txtFormReturnComplete.getText();
+	}
+	
+	public String getTxtHalamanTandaTangan() {
+		return halamanTandaTangan.getText();
+	}
+	
+	public static void tunggu(int detik) {
+		try {
+			Thread.sleep(1000*detik);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

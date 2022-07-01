@@ -24,6 +24,9 @@ private WebDriver driver;
 	@FindBy(css = "#sidebar > div > div:nth-child(1) > ul:nth-child(2) > li:nth-child(3) > a")
 	private WebElement sidebarInput;
 	
+	@FindBy(css = "#content > ol > li.breadcrumb-item.active")
+	private WebElement halamanInputData ;
+	
 	@FindBy(id = "name")
 	private WebElement inputNama;
 	
@@ -54,10 +57,13 @@ private WebDriver driver;
 	@FindBy(css="#default-tab-1 > form > div.form-group.row.m-b-0 > div > button")
 	private WebElement btnSubmitInput;
 	
+	public void halamanInputData() {
+		sidebarInput.click();
+	}
 	
 	
 	public void inputForm() {
-		sidebarInput.click();
+		
 		inputNama.sendKeys("ilham kurnia");
 		inputNoBPJS.sendKeys(""+getRandomNumber());
 		inputNoKTP.sendKeys("1232343535443534");
@@ -69,6 +75,10 @@ private WebDriver driver;
 		alasan.sendKeys("rere cantik");
 		btnSubmitInput.click();	
 		
+	}
+	
+	public String getHalamanInput() {
+		return halamanInputData.getText();
 	}
 	
 	public String getTxtBerhasilInput() {
