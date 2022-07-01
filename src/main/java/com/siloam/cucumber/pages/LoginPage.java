@@ -34,6 +34,14 @@ public class LoginPage {
 	@FindBy(css = "#header > ul > li > a > span")
 	private WebElement txtWelcome;
 	
+	@FindBy(css = "#header > ul > li > a")
+	private WebElement ddLogout;
+	
+	@FindBy(xpath = "//*[@id=\"header\"]/ul/li/div")
+	private WebElement btnLogout;
+	
+	
+	
 	@FindBy(css = "#page-container > div > div.login-header > div.brand > b")
 	private WebElement messageErrorLogin;
 	
@@ -42,6 +50,20 @@ public class LoginPage {
 		inputEmail.sendKeys(email);
 		inputPassword.sendKeys(password);
 		btnLogin.click();
+        
+	}
+	
+	public void loginAdminForm(String email, String password) {
+		inputEmail.clear();
+		inputEmail.sendKeys(email);
+		inputPassword.sendKeys(password);
+		btnLogin.click();
+        
+	}
+	
+	public void logout() {
+		ddLogout.click();
+		btnLogout.click();
         
 	}
 	

@@ -3,6 +3,7 @@ package com.siloam.cucumber.pages;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -63,6 +64,7 @@ private WebDriver driver;
 		inputAddress.sendKeys("JL. pepaya");
 		selectDropdown(selectCity).selectByVisibleText("KABUPATEN ACEH BESAR");
 		inputFaskesAwal.sendKeys("Jakarta");
+		scrollDown(driver);
 		selectDropdown(selectFaskesTujuan).selectByVisibleText("Clinic Meruya || Kota Jakarta Barat");
 		alasan.sendKeys("rere cantik");
 		btnSubmitInput.click();	
@@ -85,5 +87,10 @@ private WebDriver driver;
         long first14 = (rand.nextLong() % 10000000000000000L) + 520000000000000000L;
         return rand.nextLong();
     }
+	
+	public static void scrollDown(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("scrollBy(0, 300)");
+	}
 
 }

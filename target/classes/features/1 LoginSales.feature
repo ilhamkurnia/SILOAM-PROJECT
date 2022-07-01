@@ -1,4 +1,4 @@
-Feature: Customer Login ke Web Siloam Project
+Feature: User Login ke Web Siloam Project
 	Scenario: Testing Login Empty Username
 	  Given User mengakses url
 		When User login dengan username kosong
@@ -16,6 +16,9 @@ Feature: Customer Login ke Web Siloam Project
 		When User login dengan invalid password
 		Then User gagal login dengan invalid password
 		
-	Scenario: Testing Login Valid Customer		
-		When Customer login dengan username dan password
-		Then Customer berhasil login
+	Scenario: Testing Login Valid User	
+		When User login dengan username dan password
+		Then User berhasil login
+		
+		
+		

@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.siloam.cucumber.config.AutomationFrameworkConfig;
 import com.siloam.cucumber.driver.DriverSingleton;
+import com.siloam.cucumber.pages.FormReturn;
 import com.siloam.cucumber.pages.InputPage;
 import com.siloam.cucumber.pages.LoginPage;
 import com.siloam.cucumber.utils.ConfigurationProperties;
@@ -35,6 +36,7 @@ public class StepDefinition {
 	private static WebDriver driver;
 	private LoginPage loginPage;
 	private InputPage inputPage;
+	private FormReturn formReturn;
 	//tambahan di package pages
 	static ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/ReportTest.html");
@@ -47,6 +49,7 @@ public class StepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
 		inputPage = new InputPage();
+		formReturn = new FormReturn();
 		TestCases[] tests = TestCases.values();
 		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
 		Utils.testCount++;
@@ -91,7 +94,7 @@ public class StepDefinition {
 	@Then("User gagal login dengan username kosong")
 	public void customer_gagal_login_dengan_username_kosong() {
 		tunggu(3);
-		assertEquals(configurationProperties.getEmptyUsernamePassword(), loginPage.getAlertUsername());
+		assertEquals("", loginPage.getAlertUsername());
 		extentTest.log(LogStatus.PASS, "User gagal login dengan username kosong");
 	}
 	
@@ -104,7 +107,7 @@ public class StepDefinition {
 	@Then("User gagal login dengan password kosong")
 	public void customer_gagal_login_dengan_password_kosong() {
 		tunggu(3);
-		assertEquals(configurationProperties.getEmptyUsernamePassword(), loginPage.getAlertUsername());
+		assertEquals(loginPage.getAlertUsername(), "");
 		extentTest.log(LogStatus.PASS, "User gagal login dengan password kosong");
 	}
 	
@@ -135,19 +138,20 @@ public class StepDefinition {
 		extentTest.log(LogStatus.PASS, "Customer gagal login dengan password salah");
 	}
 	
-	@When("Customer login dengan username dan password")
+	@When("User login dengan username dan password")
 	public void customer_login_dengan_username_password() {
 		loginPage.loginForm(configurationProperties.getEmail(), configurationProperties.getPassword());
 		extentTest.log(LogStatus.PASS, "Customer gagal login");
 	}
 	
-	@Then("Customer berhasil login")
+	@Then("User berhasil login")
 	public void customer_berhasil_login() {
 		driver.navigate().refresh();
 		tunggu(2);
 		assertEquals(configurationProperties.getTxtWelcome(), loginPage.getTxtWelcome());
 		extentTest.log(LogStatus.PASS, "Customer berhasil login");
 	}
+	
 	
 	//modul input data
 	@When("Sales input data pasien")
@@ -160,6 +164,58 @@ public class StepDefinition {
 	public void sales_berhasil_input() {
 		assertEquals(configurationProperties.getTxtBerhasilInput(), inputPage.getTxtBerhasilInput());
 		extentTest.log(LogStatus.PASS, "Sales Berhasil Input Data");
+	}
+	
+	@When("Sales filter data pasien dengan status pending")
+	public void sales_filter_data_pasien_dengan_status_pending() {
+		formReturn.ReturnFormPending();
+		extentTest.log(LogStatus.PASS, "Sales filter data pasien dengan status pending");
+	}
+	
+	@Then("Sales berhasil memfilter data dengan status pending")
+	public void sales_berhasil_memfilter_data_dengan_status_pending() {
+		assertEquals(configurationProperties.getTxtFormReturnPending(), formReturn.getTxtFormReturnPending());
+		extentTest.log(LogStatus.PASS, "Sales Berhasil filter data pasien dengan status pending");
+	}
+	
+	@When("Sales filter data pasien dengan status complete")
+	public void sales_filter_data_pasien_dengan_status_complete() {
+		formReturn.ReturnFormComplete();
+		extentTest.log(LogStatus.PASS, "Sales filter data pasien dengan status pending");
+	}
+	
+	@Then("Sales berhasil memfilter data dengan status complete")
+	public void sales_berhasil_memfilter_data_dengan_status_complete() {
+		assertEquals(configurationProperties.getTxtFormReturnComplete(), formReturn.getTxtFormReturnComplete());
+		extentTest.log(LogStatus.PASS, "Sales Berhasil filter data pasien dengan status pending");
+	}
+	
+	//modul logout
+	@When("User logout")
+	public void user_logout() {
+		loginPage.logout();
+		extentTest.log(LogStatus.PASS, "User logout");
+	}
+	
+	@Then("User berhasil logout")
+	public void user_berhasil_logout() {
+		tunggu(2);
+		assertEquals(configurationProperties.getMessageErrorLogin(), loginPage.getMessageErrorLogin());
+		extentTest.log(LogStatus.PASS, "User berhasil logout");
+	}
+	
+	@When("User admin login dengan username dan password")
+	public void user_admin_login_dengan_username_dan_password() {
+		loginPage.loginForm(configurationProperties.getUsernameAdmin(), configurationProperties.getPasswordAdmin());
+		extentTest.log(LogStatus.PASS, "Customer gagal login");
+	}
+	
+	@Then("User admin berhasil login")
+	public void user_admin_berhasil_login() {
+		driver.navigate().refresh();
+		tunggu(2);
+		assertEquals(configurationProperties.getTxtWelcomeAdmin(), loginPage.getTxtWelcome());
+		extentTest.log(LogStatus.PASS, "Customer berhasil login");
 	}
 	
 	

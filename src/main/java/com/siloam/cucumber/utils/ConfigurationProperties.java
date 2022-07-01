@@ -17,8 +17,14 @@ public class ConfigurationProperties {
 	@Value("${email}")
 	private String email;
 	
+	@Value("${usernameAdmin}")
+	private String usernameAdmin;
+	
 	@Value("${password}")
 	private String password;
+	
+	@Value("${passwordAdmin}")
+	private String passwordAdmin;
 	
 	@Value("${wrongUsername}")
 	private String wrongUsername;
@@ -29,11 +35,20 @@ public class ConfigurationProperties {
 	@Value("${txtWelcome}")
 	private String txtWelcome;
 	
+	@Value("${txtWelcomeAdmin}")
+	private String txtWelcomeAdmin;
+	
 	@Value("${messageErrorLogin}")
 	private String messageErrorLogin;
 	
 	@Value("${txtBerhasilInput}")
 	private String txtBerhasilInput;
+	
+	@Value("${txtFormReturnPending}")
+	private String txtFormReturnPending;
+	
+	@Value("${txtFormReturnComplete}")
+	private String txtFormReturnComplete;
 
 	public String getBrowser() {
 		return browser;
@@ -66,6 +81,24 @@ public class ConfigurationProperties {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+
+	public String getUsernameAdmin() {
+		return usernameAdmin;
+	}
+
+	public void setUsernameAdmin(String usernameAdmin) {
+		this.usernameAdmin = usernameAdmin;
+	}
+
+	public String getPasswordAdmin() {
+		return passwordAdmin;
+	}
+
+	public void setPasswordAdmin(String passwordAdmin) {
+		this.passwordAdmin = passwordAdmin;
+	}
 
 	public String getTxtWelcome() {
 		return txtWelcome;
@@ -73,6 +106,14 @@ public class ConfigurationProperties {
 
 	public void setTxtWelcome(String txtWelcome) {
 		this.txtWelcome = txtWelcome;
+	}
+
+	public String getTxtWelcomeAdmin() {
+		return txtWelcomeAdmin;
+	}
+
+	public void setTxtWelcomeAdmin(String txtWelcomeAdmin) {
+		this.txtWelcomeAdmin = txtWelcomeAdmin;
 	}
 
 	public String getWrongUsername() {
@@ -106,6 +147,26 @@ public class ConfigurationProperties {
 	public void setTxtBerhasilInput(String txtBerhasilInput) {
 		this.txtBerhasilInput = txtBerhasilInput;
 	}
+
+	public String getTxtFormReturnPending() {
+		return txtFormReturnPending;
+	}
+
+	public void setTxtFormReturnPending(String txtFormReturnPending) {
+		this.txtFormReturnPending = txtFormReturnPending;
+	}
+
+	public String getTxtFormReturnComplete() {
+		return txtFormReturnComplete;
+	}
+
+	public void setTxtFormReturnComplete(String txtFormReturnComplete) {
+		this.txtFormReturnComplete = txtFormReturnComplete;
+	}
+	
+	
+	
+	
 	
 	
 	
