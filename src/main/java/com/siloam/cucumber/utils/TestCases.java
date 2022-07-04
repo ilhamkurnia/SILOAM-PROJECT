@@ -10,14 +10,33 @@ public enum TestCases {
 	T6("Testing Login User Sales Valid"),
 	
 	T7("Testing Menampilkan Halaman Input Data"),
-	T8("Testing Input Data"),
+	T8("Testing Mengisi nama kosong"),
+	T9("Testing Mengisi valid nama"),
+	T10("Testing Mengisi nomor bpjs kosong"),
+	T11("Testing Mengisi valid nomor bpjs"),
+	T12("Testing Mengisi nomor ktp kosong"),
+	T13("Testing Mengisi valid nomor ktp"),
+	T14("Testing Mengisi nomor bpjs kosong"),
+	T15("Testing Mengisi valid nomor bpjs"),
+	T16("Testing Mengisi alamat kosong"),
+	T17("Testing Mengisi valid alamat"),
+	T18("Testing Mengisi kota ktp kosong"),
+	T19("Testing Mengisi valid kota ktp"),
+	T20("Testing Mengisi faskes awal kosong"),
+	T21("Testing Mengisi valid faskes awal"),
+	T22("Testing Mengisi faskes tujuan kosong"),
+	T23("Testing Mengisi valid faskes tujuan"),
+	T24("Testing Mengisi alasan kosong"),
+	T25("Testing Mengisi valid alasan"),
 	
-	T9("Testing Filter Status Pending"),
-	T10("Testing Filter Status Complete"),
-	T11("Testing Filter Dengan Search"),
+	T26("Testing Input Data"),
 	
-	T12("Testing Logout User"),
-	T13("Testing Login User Admin");
+	T27("Testing Filter Status Pending"),
+	T28("Testing Filter Status Complete"),
+	T29("Testing Filter Dengan Search"),
+	
+	T30("Testing Logout User"),
+	T31("Testing Login User Admin");
 	
 	private String testName;
 	

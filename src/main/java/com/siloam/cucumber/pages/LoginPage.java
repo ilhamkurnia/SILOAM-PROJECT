@@ -69,11 +69,11 @@ public class LoginPage {
 	
 	public String getAlertUsername() {
 		
-		return inputEmail.getText();
+		return inputEmail.getAttribute("required");
 	}
 	
 	public String getAlertPassword() {
-		return inputPassword.getText();
+		return inputPassword.getAttribute("required");
 	}
 	
 //	public boolean isAlertPresent(){

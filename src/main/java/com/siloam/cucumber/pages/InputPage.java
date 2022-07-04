@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,23 +60,129 @@ private WebDriver driver;
 	
 	public void halamanInputData() {
 		sidebarInput.click();
+		btnSubmitInput.click();	
 	}
+	
+	public void ValidNama() {
+		inputNama.sendKeys("Muhammad Ade Ilham");
+	}
+	
+	public void ValidNoBPJS() {
+		inputNoBPJS.sendKeys(""+getRandomNumber());
+	}
+	
+	public void ValidNoKTP() {
+		inputNoKTP.sendKeys("1232343535443534");
+	}
+	
+	public void ValidAlamat() {
+		inputAddress.sendKeys("JL. pepaya");
+	}
+	
+	public void ValidKotaKTP() {
+		selectDropdown(selectCity).selectByVisibleText("KABUPATEN ACEH BESAR");
+	}
+	
+	public void ValidFaskesAwal() {
+		inputFaskesAwal.sendKeys("Jakarta");
+	}
+	
+	public void ValidFaskesTujuan() {
+		selectDropdown(selectFaskesTujuan).selectByVisibleText("Clinic Meruya || Kota Jakarta Barat");
+	}
+	
+	public void ValidAlasan() {
+		alasan.sendKeys("rere cantik");
+	}
+	
+	
+
 	
 	
 	public void inputForm() {
 		
-		inputNama.sendKeys("ilham kurnia");
-		inputNoBPJS.sendKeys(""+getRandomNumber());
-		inputNoKTP.sendKeys("1232343535443534");
-		inputAddress.sendKeys("JL. pepaya");
-		selectDropdown(selectCity).selectByVisibleText("KABUPATEN ACEH BESAR");
-		inputFaskesAwal.sendKeys("Jakarta");
-		scrollDown(driver);
-		selectDropdown(selectFaskesTujuan).selectByVisibleText("Clinic Meruya || Kota Jakarta Barat");
-		alasan.sendKeys("rere cantik");
+//		inputNama.sendKeys("ilham kurnia");
+//		inputNoBPJS.sendKeys(""+getRandomNumber());
+//		inputNoKTP.sendKeys("1232343535443534");
+//		inputAddress.sendKeys("JL. pepaya");
+//		selectDropdown(selectCity).selectByVisibleText("KABUPATEN ACEH BESAR");
+//		inputFaskesAwal.sendKeys("Jakarta");
+//		scrollDown(driver);
+//		selectDropdown(selectFaskesTujuan).selectByVisibleText("Clinic Meruya || Kota Jakarta Barat");
+//		alasan.sendKeys("rere cantik");
 		btnSubmitInput.click();	
 		
 	}
+	
+	public String getValidateNama() {
+		return inputNama.getAttribute("required");
+	}
+	
+	public String getNama() {
+		return inputNama.getAttribute("value");
+	}
+	
+	public String getValidateNoBPJS() {
+		return inputNoBPJS.getAttribute("required");
+	}
+	
+	public int getNoBPJS() {
+		String typedValue = inputNoBPJS.getAttribute("value");
+		int size = typedValue.length();
+		return size;
+	}
+	
+	public String getValidateNoKTP() {
+		return inputNoKTP.getAttribute("required");
+	}
+	
+	public int getNoKTP() {
+		String typedValue = inputNoKTP.getAttribute("value");
+		int size = typedValue.length();
+		return size;
+	}
+	
+	public String getValidateAlamat() {
+		return inputAddress.getAttribute("required");
+	}
+	
+	public String getAlamat() {
+		return inputAddress.getAttribute("value");
+	}
+	
+	public String getValidateKotaKTP() {
+		return selectCity.getAttribute("required");
+	}
+	
+	public String getKotaKTP() {
+		return selectCity.getAttribute("value");
+	}
+	
+	public String getValidateFaskesAwal() {
+		return inputFaskesAwal.getAttribute("required");
+	}
+	
+	public String getFaskesAwal() {
+		return inputFaskesAwal.getAttribute("value");
+	}
+	
+	public String getValidateFaskesTujuan() {
+		return selectFaskesTujuan.getAttribute("required");
+	}
+	
+	public String getFaskesTujuan() {
+		return selectFaskesTujuan.getAttribute("value");
+	}
+	
+	public String getValidateAlasan() {
+		return alasan.getAttribute("required");
+	}
+	
+	public String getAlasan() {
+		return alasan.getAttribute("value");
+	}
+	
+	
 	
 	public String getHalamanInput() {
 		return halamanInputData.getText();
