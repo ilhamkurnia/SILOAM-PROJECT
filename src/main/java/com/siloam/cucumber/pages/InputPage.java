@@ -173,6 +173,80 @@ private WebDriver driver;
 		return halamanInputData.getText();
 	}
 	
+	public String getValidateNama() {
+		return inputNama.getAttribute("required");
+	}
+	
+	public String getNama() {
+		return inputNama.getAttribute("value");
+	}
+	
+	public String getValidateNoBPJS() {
+		return inputNoBPJS.getAttribute("required");
+	}
+	
+	public int getNoBPJS() {
+		String typedValue = inputNoBPJS.getAttribute("value");
+		int size = typedValue.length();
+		return size;
+	}
+	
+	public String getValidateNoKTP() {
+		return inputNoKTP.getAttribute("required");
+	}
+	
+	public int getNoKTP() {
+		String typedValue = inputNoKTP.getAttribute("value");
+		int size = typedValue.length();
+		return size;
+	}
+	
+	public String getValidateAlamat() {
+		return inputAddress.getAttribute("required");
+	}
+	
+	public String getAlamat() {
+		return inputAddress.getAttribute("value");
+	}
+	
+	public String getValidateKotaKTP() {
+		return selectCity.getAttribute("required");
+	}
+	
+	public String getKotaKTP() {
+		return selectCity.getAttribute("value");
+	}
+	
+	public String getValidateFaskesAwal() {
+		return inputFaskesAwal.getAttribute("required");
+	}
+	
+	public String getFaskesAwal() {
+		return inputFaskesAwal.getAttribute("value");
+	}
+	
+	public String getValidateFaskesTujuan() {
+		return selectFaskesTujuan.getAttribute("required");
+	}
+	
+	public String getFaskesTujuan() {
+		return selectFaskesTujuan.getAttribute("value");
+	}
+	
+	public String getValidateAlasan() {
+		return alasan.getAttribute("required");
+	}
+	
+	public String getAlasan() {
+		return alasan.getAttribute("value");
+	}
+	
+	
+	
+	public String getHalamanInput() {
+		return halamanInputData.getText();
+	}
+	
 	public String getTxtBerhasilInput() {
 		return txtBerhasilInput.getText();
 	}

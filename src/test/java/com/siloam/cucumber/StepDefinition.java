@@ -407,6 +407,70 @@ public class StepDefinition {
 		extentTest.log(LogStatus.PASS, "Sales Berhasil Input Data");
 	}
 	
+//	@When("Sales filter data pasien dengan status pending")
+//	public void sales_filter_data_pasien_dengan_status_pending() {
+//		formReturn.ReturnFormPending();
+//		extentTest.log(LogStatus.PASS, "Sales filter data pasien dengan status pending");
+//	}
+//	
+//	@Then("Sales berhasil memfilter data dengan status pending")
+//	public void sales_berhasil_memfilter_data_dengan_status_pending() {
+//		assertEquals(configurationProperties.getTxtFormReturnPending(), formReturn.getTxtFormReturnPending());
+//		extentTest.log(LogStatus.PASS, "Sales Berhasil filter data pasien dengan status pending");
+//	}
+//	
+//	@When("Sales filter data pasien dengan status complete")
+//	public void sales_filter_data_pasien_dengan_status_complete() {
+//		formReturn.ReturnFormComplete();
+//		extentTest.log(LogStatus.PASS, "Sales filter data pasien dengan status pending");
+//	}
+//	
+//	@Then("Sales berhasil memfilter data dengan status complete")
+//	public void sales_berhasil_memfilter_data_dengan_status_complete() {
+//		assertEquals(configurationProperties.getTxtFormReturnComplete(), formReturn.getTxtFormReturnComplete());
+//		extentTest.log(LogStatus.PASS, "Sales Berhasil filter data pasien dengan status pending");
+//	}
+//	
+//	@When("Sales filter data pasien dengan search")
+//	public void sales_filter_data_pasien_dengan_search() {
+//		formReturn.SearchData();
+//		extentTest.log(LogStatus.PASS, "Sales filter data pasien dengan search");
+//	}
+//	
+//	@Then("Sales berhasil memfilter data dengan search")
+//	public void sales_berhasil_memfilter_data_dengan_search() {
+//		assertEquals(configurationProperties.getHalamanTandaTangan(), formReturn.getTxtHalamanTandaTangan());
+//		extentTest.log(LogStatus.PASS, "Sales Berhasil filter data pasien dengan status pending");
+//	}
+	
+	//modul logout
+//	@When("User logout")
+//	public void user_logout() {
+//		loginPage.logout();
+//		extentTest.log(LogStatus.PASS, "User logout");
+//	}
+//	
+//	@Then("User berhasil logout")
+//	public void user_berhasil_logout() {
+//		tunggu(2);
+//		assertEquals(configurationProperties.getHalamanLogin(), loginPage.getHalamanLogin());
+//		extentTest.log(LogStatus.PASS, "User berhasil logout");
+//	}
+//	
+//	@When("User admin login dengan username dan password")
+//	public void user_admin_login_dengan_username_dan_password() {
+//		loginPage.loginForm(configurationProperties.getUsernameAdmin(), configurationProperties.getPasswordAdmin());
+//		extentTest.log(LogStatus.PASS, "Customer gagal login");
+//	}
+//	
+//	@Then("User admin berhasil login")
+//	public void user_admin_berhasil_login() {
+//		driver.navigate().refresh();
+//		tunggu(2);
+//		assertEquals(configurationProperties.getTxtWelcomeAdmin(), loginPage.getTxtWelcome());
+//		extentTest.log(LogStatus.PASS, "Customer berhasil login");
+//	}
+	
 	
 	//Modul Upload Document
 	//Scenario: Testing Menampilkan Halaman Upload
